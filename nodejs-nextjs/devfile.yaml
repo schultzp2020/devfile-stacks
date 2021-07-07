@@ -55,3 +55,8 @@ metadata:
     - ubi8
   version: 1.0.1
 schemaVersion: 2.0.0
+starterProjects:
+  - name: nodejs-nextjs-starter
+    git:
+      remotes:
+        origin: 'https://github.com/schultzp2020/devfile-starter-projects/tree/main/nodejs-nextjs'

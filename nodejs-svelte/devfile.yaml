@@ -14,7 +14,7 @@ commands:
         isDefault: true
         kind: run
       workingDir: /project
-    id: build
+    id: run
 components:
   - container:
       image: node:slim
@@ -23,7 +23,7 @@ components:
       sourceMapping: /project
       volumeMounts:
         - name: dist
-          path: /project/dist
+          path: /project/public
     name: builder
   - container:
       endpoints:
@@ -43,7 +43,7 @@ metadata:
   description: Stack with Node.js 14
   displayName: Node.js Runtime
   language: nodejs
-  name: nodejs-vue
+  name: nodejs-svelte
   projectType: nodejs
   tags:
     - NodeJS
@@ -52,7 +52,7 @@ metadata:
   version: 1.0.1
 schemaVersion: 2.0.0
 starterProjects:
-  - name: nodejs-vue-starter
+  - name: nodejs-svelte-starter
     git:
       remotes:
-        origin: 'https://github.com/schultzp2020/devfile-starter-projects/tree/main/nodejs-vue'
+        origin: 'https://github.com/schultzp2020/devfile-starter-projects/tree/main/nodejs-svelte'

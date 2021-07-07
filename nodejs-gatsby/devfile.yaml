@@ -1,49 +1,53 @@
 commands:
   - exec:
       commandLine: yarn install --frozen-lockfile
-      component: builder
+      component: runtime
       group:
-        isDefault: true
+        isDefault: false
         kind: build
       workingDir: /project
     id: install
   - exec:
       commandLine: yarn build && yarn install --production --ignore-scripts --prefer-offline
-      component: builder
+      component: runtime
+      group:
+        isDefault: false
+        kind: build
+      workingDir: /project
+    id: build
+  - composite:
+      commands:
+        - install
+        - build
+      group:
+        isDefault: true
+        kind: build
+      label: Provision Gatsby Server
+      parallel: false
+    id: init-server
+  - exec:
+      commandLine: yarn start
+      component: runtime
       group:
         isDefault: true
         kind: run
       workingDir: /project
-    id: build
+    id: run
 components:
   - container:
+      endpoints:
+        - name: http
+          targetPort: 9000
       image: node:slim
       memoryLimit: 1024Mi
       mountSources: true
       sourceMapping: /project
-      volumeMounts:
-        - name: dist
-          path: /project/dist
-    name: builder
-  - container:
-      endpoints:
-        - name: http
-          targetPort: 8080
-      image: nginxinc/nginx-unprivileged:alpine
-      memoryLimit: 1024Mi
-      mountSources: false
-      volumeMounts:
-        - name: dist
-          path: /usr/share/nginx/html
-    name: server
-  - name: dist
-    volume:
-      size: 4Gi
+    name: runtime
 metadata:
   description: Stack with Node.js 14
   displayName: Node.js Runtime
   language: nodejs
-  name: nodejs-vue
+  name: nodejs-gatsby
   projectType: nodejs
   tags:
     - NodeJS
@@ -52,7 +56,7 @@ metadata:
   version: 1.0.1
 schemaVersion: 2.0.0
 starterProjects:
-  - name: nodejs-vue-starter
+  - name: nodejs-gatsby-starter
     git:
       remotes:
-        origin: 'https://github.com/schultzp2020/devfile-starter-projects/tree/main/nodejs-vue'
+        origin: 'https://github.com/schultzp2020/devfile-starter-projects/tree/main/nodejs-gatsby'

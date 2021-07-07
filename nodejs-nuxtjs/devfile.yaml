@@ -8,7 +8,7 @@ commands:
       workingDir: /project
     id: install
   - exec:
-      commandLine: yarn build
+      commandLine: yarn build && yarn install --production --ignore-scripts --prefer-offline
       component: runtime
       group:
         isDefault: false
@@ -47,7 +47,7 @@ metadata:
   description: Stack with Node.js 14
   displayName: Node.js Runtime
   language: nodejs
-  name: nodejs-nextjs
+  name: nodejs-nuxtjs
   projectType: nodejs
   tags:
     - NodeJS
@@ -55,3 +55,8 @@ metadata:
     - ubi8
   version: 1.0.1
 schemaVersion: 2.0.0
+starterProjects:
+  - name: nodejs-nuxtjs-starter
+    git:
+      remotes:
+        origin: 'https://github.com/schultzp2020/devfile-starter-projects/tree/main/nodejs-nuxtjs'
