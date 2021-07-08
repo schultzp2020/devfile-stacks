@@ -53,7 +53,7 @@ commands:
       parallel: false
     id: init-server
   - exec:
-      commandLine: php artisan serve
+      commandLine: php artisan serve --host=0.0.0.0
       component: runtime
       group:
         isDefault: true
@@ -84,4 +84,5 @@ starterProjects:
   - name: php-laravel-starter
     git:
       remotes:
-        origin: 'https://github.com/schultzp2020/devfile-starter-projects/tree/main/php-laravel'
+        origin: https://github.com/schultzp2020/devfile-stacks.git
+    subDir: php-laravel

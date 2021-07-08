@@ -55,4 +55,5 @@ starterProjects:
   - name: nodejs-svelte-starter
     git:
       remotes:
-        origin: 'https://github.com/schultzp2020/devfile-starter-projects/tree/main/nodejs-svelte'
+        origin: https://github.com/schultzp2020/devfile-stacks.git
+    subDir: nodejs-svelte

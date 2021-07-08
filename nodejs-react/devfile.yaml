@@ -55,4 +55,5 @@ starterProjects:
   - name: nodejs-react-starter
     git:
       remotes:
-        origin: 'https://github.com/schultzp2020/devfile-starter-projects/tree/main/nodejs-react'
+        origin: https://github.com/schultzp2020/devfile-stacks.git
+    subDir: nodejs-react

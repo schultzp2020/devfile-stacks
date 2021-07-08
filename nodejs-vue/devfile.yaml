@@ -55,4 +55,5 @@ starterProjects:
   - name: nodejs-vue-starter
     git:
       remotes:
-        origin: 'https://github.com/schultzp2020/devfile-starter-projects/tree/main/nodejs-vue'
+        origin: https://github.com/schultzp2020/devfile-stacks.git
+    subDir: nodejs-vue
