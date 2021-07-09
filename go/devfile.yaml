@@ -38,6 +38,8 @@ schemaVersion: 2.0.0
 starterProjects:
   - name: go-starter
     git:
+      checkoutFrom:
+        revision: main
       remotes:
-        origin: https://github.com/schultzp2020/devfile-stacks.git
+        origin: https://github.com/schultzp2020/devfile-starter-projects.git
     subDir: go

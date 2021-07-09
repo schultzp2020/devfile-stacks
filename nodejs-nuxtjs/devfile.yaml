@@ -38,7 +38,7 @@ components:
       endpoints:
         - name: http
           targetPort: 3000
-      image: node:slim
+      image: node:latest
       memoryLimit: 1024Mi
       mountSources: true
       sourceMapping: /project
@@ -58,6 +58,8 @@ schemaVersion: 2.0.0
 starterProjects:
   - name: nodejs-nuxtjs-starter
     git:
+      checkoutFrom:
+        revision: main
       remotes:
-        origin: https://github.com/schultzp2020/devfile-stacks.git
+        origin: https://github.com/schultzp2020/devfile-starter-projects.git
     subDir: nodejs-nuxtjs
